@@ -1,6 +1,7 @@
 // Next Google Fonts
 import {
     Alex_Brush,
+    Cairo,
     Dancing_Script,
     Great_Vibes,
     Outfit,
@@ -12,6 +13,13 @@ export const outfit = Outfit({
     subsets: ["latin"],
     display: "swap",
     adjustFontFallback: false,
+});
+
+export const cairo = Cairo({
+    subsets: ["latin", "arabic"],
+    display: "swap",
+    adjustFontFallback: false,
+    variable: "--font-cairo",
 });
 
 // Signature fonts

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 // Fonts
 import {
     alexBrush,
+    cairo,
     dancingScript,
     greatVibes,
     outfit,
@@ -32,7 +33,7 @@ import Providers from "@/contexts/Providers";
 import { JSONLD, ROOTKEYWORDS } from "@/lib/seo";
 
 // Variables
-import { BASE_URL, GOOGLE_SC_VERIFICATION, LOCALES } from "@/lib/variables";
+import { BASE_URL, GOOGLE_SC_VERIFICATION, LOCALES, isRTL } from "@/lib/variables";
 
 export const metadata: Metadata = {
     title: "Invoify | Free Invoice Generator",
@@ -77,7 +78,7 @@ export default async function LocaleLayout({
     }
 
     return (
-        <html lang={locale}>
+        <html lang={locale} dir={isRTL(locale) ? "rtl" : "ltr"}>
             <head>
                 <script
                     type="application/ld+json"
@@ -86,7 +87,7 @@ export default async function LocaleLayout({
                 />
             </head>
             <body
-                className={`${outfit.className} ${dancingScript.variable} ${parisienne.variable} ${greatVibes.variable} ${alexBrush.variable} antialiased bg-slate-100 dark:bg-slate-800`}
+                className={`${isRTL(locale) ? cairo.className : outfit.className} ${cairo.variable} ${dancingScript.variable} ${parisienne.variable} ${greatVibes.variable} ${alexBrush.variable} antialiased bg-slate-100 dark:bg-slate-800`}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <Providers>
