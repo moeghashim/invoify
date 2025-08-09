@@ -70,6 +70,13 @@ export const LOCALES = [
 export const DEFAULT_LOCALE = LOCALES[0].code;
 
 /**
+ * RTL Support
+ */
+export const RTL_LOCALES = ["ar"];
+
+export const isRTL = (locale: string): boolean => RTL_LOCALES.includes(locale);
+
+/**
  * Signature variables
  */
 export const SIGNATURE_COLORS: SignatureColor[] = [
